@@ -26,7 +26,7 @@ def validate_token(credentials: HTTPAuthorizationCredentials = Depends(bearer_sc
     return credentials
 
 
-app = FastAPI(dependencies=[Depends(validate_token)])
+app = FastAPI()
 app.mount("/.well-known", StaticFiles(directory=".well-known"), name="static")
 
 # Create a sub-application, in order to access just the query endpoint in an OpenAPI schema, found at http://0.0.0.0:8000/sub/openapi.json when the app is running locally
@@ -35,7 +35,6 @@ sub_app = FastAPI(
     description="A retrieval API for querying and filtering documents based on natural language queries and metadata",
     version="1.0.0",
     servers=[{"url": "https://your-app-url.com"}],
-    dependencies=[Depends(validate_token)],
 )
 app.mount("/sub", sub_app)
 

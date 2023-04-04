@@ -146,7 +146,7 @@ def create_document_chunks(
     return doc_chunks, doc_id
 
 
-def get_document_chunks(
+async def get_document_chunks(
     documents: List[Document], chunk_token_size: Optional[int]
 ) -> Dict[str, List[DocumentChunk]]:
     """
@@ -189,7 +189,7 @@ def get_document_chunks(
         ]
 
         # Get the embeddings for the batch texts
-        batch_embeddings = get_embeddings(batch_texts)
+        batch_embeddings = await get_embeddings(batch_texts)
 
         # Append the batch embeddings to the embeddings list
         embeddings.extend(batch_embeddings)
