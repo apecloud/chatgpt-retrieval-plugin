@@ -13,7 +13,7 @@ export GOPRIVATE = github.com/apecloud
 
 BUILDX_PLATFORMS ?= linux/amd64,linux/arm64
 BUILDX_OUTPUT_TYPE ?= docker
-BUILDX_ARGS ?=
+BUILDX_ARGS ?= --sbom=false --provenance=false
 
 HEROKU_APP = <your app name> 
 
