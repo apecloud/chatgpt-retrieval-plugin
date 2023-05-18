@@ -1,0 +1,11 @@
+# chromadb依赖的duckdb, 编译linux aarch64版本问题, pypi没有对应的wheel包, build image过程中只能源码编译, build就一直卡住, 暂时先把chromadb去掉
+
+```bash
+poetry remove chromadb
+```
+
+相关issue
+
+* https://github.com/duckdb/duckdb/pull/4519
+
+* https://pypi.org/project/duckdb/#files
